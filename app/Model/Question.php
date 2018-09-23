@@ -9,6 +9,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
+
+    //protected $fillable = ['title','slug','body','category_id','user_id'];
+    
+    protected $guarded = [];
+
+    /*
+        Tells laravel to search for given field i.e. "slug" instead of "id" in Route Model Binding
+    */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+
+    /*
+        By adding this we can access 'path' like $this->path which return path of this 'slug' from the root[Base URL.]
+    */
+    public function getPathAttribute()
+    {
+        return asset("api/question/$this->slug");
+    }
+
+
     public function user()
     {
         return $this->belongsTo(User::class);
