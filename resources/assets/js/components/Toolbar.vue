@@ -27,7 +27,7 @@ export default {
       items:[
         {title: 'Forum', redirect: '/forum', show: true},
         {title: 'Ask Question', redirect: '/ask', show: User.loggedIn()},
-        {title: 'Category', redirect: '/category', show: User.loggedIn()},
+        {title: 'Category', redirect: '/category', show: User.admin()},
         {title: 'Login', redirect: '/login', show: !User.loggedIn()},
         {title: 'Logout', redirect: '/logout', show: User.loggedIn()}
       ]
