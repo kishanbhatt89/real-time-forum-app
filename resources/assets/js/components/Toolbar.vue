@@ -9,7 +9,7 @@
         to="/login" 
         v-for="item in items"
         :key="item.title"
-        :to="item.to"
+        :to="item.redirect"
         v-if="item.show">
 
         <v-btn flat>{{ item.title }}</v-btn>
@@ -25,16 +25,16 @@ export default {
   data(){
     return {
       items:[
-        {title: 'Forum', to: '/forum', show: true},
-        {title: 'Ask Question', to: '/ask', show: User.loggedIn()},
-        {title: 'Category', to: '/category', show: User.loggedIn()},
-        {title: 'Login', to: '/login', show: !User.loggedIn()},
-        {title: 'Logout', to: '/logout', show: User.loggedIn()}
+        {title: 'Forum', redirect: '/forum', show: true},
+        {title: 'Ask Question', redirect: '/ask', show: User.loggedIn()},
+        {title: 'Category', redirect: '/category', show: User.loggedIn()},
+        {title: 'Login', redirect: '/login', show: !User.loggedIn()},
+        {title: 'Logout', redirect: '/logout', show: User.loggedIn()}
       ]
     }
   },
   created(){
-    EventBus.on('logout', () => {
+    EventBus.$on('logout', () => {
       User.logout()
     })
   }
