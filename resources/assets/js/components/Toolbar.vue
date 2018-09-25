@@ -3,6 +3,7 @@
     <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
     <v-toolbar-title>The Web Artisans</v-toolbar-title>
     <v-spacer></v-spacer>
+    <AppNotification v-if="loggedIn"></AppNotification>
     <div class="hidden-sm-and-down">
       
       <router-link 
@@ -21,9 +22,14 @@
 </template>
 
 <script>
+import AppNotification from './AppNotification'
 export default {
+  components:{
+    AppNotification
+  },
   data(){
     return {
+      loggedIn: User.loggedIn(),
       items:[
         {title: 'Forum', redirect: '/forum', show: true},
         {title: 'Ask Question', redirect: '/ask', show: User.loggedIn()},
