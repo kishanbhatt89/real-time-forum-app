@@ -1,7 +1,11 @@
 <template>
-  <v-toolbar>
+  <v-toolbar color="indigo" dark>
     <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
-    <v-toolbar-title>The Web Artisans</v-toolbar-title>
+    <v-toolbar-title >
+      <router-link class="white--text" to="/">
+        The Web Artisans
+      </router-link>
+    </v-toolbar-title>
     <v-spacer></v-spacer>
     <AppNotification v-if="loggedIn"></AppNotification>
     <div class="hidden-sm-and-down">
