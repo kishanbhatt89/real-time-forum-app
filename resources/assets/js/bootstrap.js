@@ -52,7 +52,12 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
      broadcaster: 'pusher',
-     key: process.env.MIX_PUSHER_APP_KEY,
-     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-     encrypted: true
+     key: '2c09223e636ddac7af47',
+     cluster: 'ap2',
+     encrypted: true,
+     auth:{
+         headers:{
+             Authorization: JWTToken
+         }
+     }
 });
